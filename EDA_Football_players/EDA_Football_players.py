@@ -8,15 +8,14 @@ import numpy as np
 st.title('NFL Football Stats (Rushing) Explorer')
 
 st.markdown("""
-This app performs simple webscraping of NFL Football player stats data (focusing on Rushing)!
-* **Python libraries:** base64, pandas, streamlit, numpy, matplotlib, seaborn
+NFL Football player stats data
 * **Data source:** [pro-football-reference.com](https://www.pro-football-reference.com/).
 """)
 
 st.sidebar.header('User Input Features')
 selected_year = st.sidebar.selectbox('Year', list(reversed(range(1990,2020))))
 
-# Web scraping of NFL player stats
+# Web scraping of data
 # https://www.pro-football-reference.com/years/2019/rushing.htm
 @st.cache
 def load_data(year):
@@ -44,7 +43,7 @@ st.header('Display Player Stats of Selected Team(s)')
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
 st.dataframe(df_selected_team)
 
-# Download NBA player stats data
+# Download player's data
 # https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
 def filedownload(df):
     csv = df.to_csv(index=False)
@@ -54,7 +53,7 @@ def filedownload(df):
 
 st.markdown(filedownload(df_selected_team), unsafe_allow_html=True)
 
-# Heatmap
+# Heatmap graph
 if st.button('Intercorrelation Heatmap'):
     st.header('Intercorrelation Matrix Heatmap')
     df_selected_team.to_csv('output.csv',index=False)
