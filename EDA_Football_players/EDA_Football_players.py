@@ -9,7 +9,7 @@ st.title('NFL Football Stats (Rushing) Explorer')
 
 st.markdown("""
 NFL Football player stats data
-* **Data source:** [pro-football-reference.com](https://www.pro-football-reference.com/).
+* **Data source:** [pro-football-reference.com]
 """)
 
 st.sidebar.header('User Input Features')
